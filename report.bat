@@ -1,0 +1,1 @@
+npm run allure:report && allure open

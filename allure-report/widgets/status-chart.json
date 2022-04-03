@@ -1,0 +1,21 @@
+[ {
+  "uid" : "2b4e36b235cbcf8a",
+  "name" : "redirect to sign up",
+  "time" : {
+    "start" : 1648977654276,
+    "stop" : 1648977661442,
+    "duration" : 7166
+  },
+  "status" : "passed",
+  "severity" : "blocker"
+}, {
+  "uid" : "b684fbe91b1147b9",
+  "name" : "contains correct url",
+  "time" : {
+    "start" : 1648977645401,
+    "stop" : 1648977654262,
+    "duration" : 8861
+  },
+  "status" : "failed",
+  "severity" : "blocker"
+} ]

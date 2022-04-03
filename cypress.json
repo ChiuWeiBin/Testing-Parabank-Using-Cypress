@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+  "baseUrl": "https://parabank.parasoft.com",
+  "watchForFileChanges": false,
+  "integrationFolder": "cypress/test",
+  "chromeWebSecurity": false,
+  "env": {
+    "allure": true,
+    "allureAddVideoOnPass": true,
+    "tmsPrefix": "https://www.google.com/"
+  }
+}

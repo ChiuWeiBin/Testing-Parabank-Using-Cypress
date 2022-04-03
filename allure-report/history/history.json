@@ -1,0 +1,41 @@
+{
+  "2eca84e3e6073b58d1b6d411b5b40d6d" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "b684fbe91b1147b9",
+      "status" : "failed",
+      "statusDetails" : "Timed out retrying after 4000ms: expected 'https://parabank.parasoft.com/parabank/index.htm' to equal 'https://parabank.parasoft.com/parabank/index.htm111'",
+      "time" : {
+        "start" : 1648977645401,
+        "stop" : 1648977654262,
+        "duration" : 8861
+      }
+    } ]
+  },
+  "696fe8b8f1a8df09f49135d65689047c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2b4e36b235cbcf8a",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648977654276,
+        "stop" : 1648977661442,
+        "duration" : 7166
+      }
+    } ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "Register a new user",
+    "children" : [ {
+      "name" : "contains correct url",
+      "uid" : "b684fbe91b1147b9",
+      "parentUid" : "47648fb9eee3924f69127c7ae04dcb0e",
+      "status" : "failed",
+      "time" : {
+        "start" : 1648977645401,
+        "stop" : 1648977654262,
+        "duration" : 8861
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 1,
+      "retriesStatusChange" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "redirect to sign up",
+      "uid" : "2b4e36b235cbcf8a",
+      "parentUid" : "47648fb9eee3924f69127c7ae04dcb0e",
+      "status" : "passed",
+      "time" : {
+        "start" : 1648977654276,
+        "stop" : 1648977661442,
+        "duration" : 7166
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "newPassed" : false,
+      "newBroken" : false,
+      "retriesCount" : 1,
+      "retriesStatusChange" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "47648fb9eee3924f69127c7ae04dcb0e"
+  } ]
+}

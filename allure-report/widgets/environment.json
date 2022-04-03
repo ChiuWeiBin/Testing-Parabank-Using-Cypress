@@ -1,0 +1,13 @@
+[ {
+  "values" : [ "Chrome" ],
+  "name" : "browser"
+}, {
+  "values" : [ "100.0.4896.60" ],
+  "name" : "version"
+}, {
+  "values" : [ "stable" ],
+  "name" : "channel"
+}, {
+  "values" : [ "chromium" ],
+  "name" : "family"
+} ]

@@ -1,0 +1,178 @@
+{
+  "uid" : "59ac2748fcfe5304",
+  "name" : "contains correct url",
+  "fullName" : "contains correct url",
+  "historyId" : "2eca84e3e6073b58d1b6d411b5b40d6d",
+  "time" : {
+    "start" : 1648977540677,
+    "stop" : 1648977548917,
+    "duration" : 8240
+  },
+  "status" : "failed",
+  "statusMessage" : "Timed out retrying after 4000ms: expected 'https://parabank.parasoft.com/parabank/index.htm' to equal 'https://parabank.parasoft.com/parabank/index.htm111'",
+  "statusTrace" : "AssertionError: Timed out retrying after 4000ms: expected 'https://parabank.parasoft.com/parabank/index.htm' to equal 'https://parabank.parasoft.com/parabank/index.htm111'\n    at Context.eval (https://parabank.parasoft.com/__cypress/tests?p=cypress\\test\\test.spec.ts:118:18)",
+  "flaky" : false,
+  "newFailed" : false,
+  "newBroken" : false,
+  "newPassed" : false,
+  "retriesCount" : 0,
+  "retriesStatusChange" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "Timed out retrying after 4000ms: expected 'https://parabank.parasoft.com/parabank/index.htm' to equal 'https://parabank.parasoft.com/parabank/index.htm111'",
+    "statusTrace" : "AssertionError: Timed out retrying after 4000ms: expected 'https://parabank.parasoft.com/parabank/index.htm' to equal 'https://parabank.parasoft.com/parabank/index.htm111'\n    at Context.eval (https://parabank.parasoft.com/__cypress/tests?p=cypress\\test\\test.spec.ts:118:18)",
+    "steps" : [ {
+      "name" : "\"before each\" hook",
+      "time" : {
+        "start" : 1648977540678,
+        "stop" : 1648977544819,
+        "duration" : 4141
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Open the application",
+        "time" : {
+          "start" : 1648977540700,
+          "stop" : 1648977544820,
+          "duration" : 4120
+        },
+        "status" : "passed",
+        "steps" : [ {
+          "name" : "visit /parabank/index.htm",
+          "time" : {
+            "start" : 1648977540700,
+            "stop" : 1648977544817,
+            "duration" : 4117
+          },
+          "status" : "passed",
+          "steps" : [ ],
+          "attachments" : [ ],
+          "parameters" : [ ],
+          "hasContent" : false,
+          "stepsCount" : 0,
+          "shouldDisplayMessage" : false,
+          "attachmentsCount" : 0
+        } ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "hasContent" : true,
+        "stepsCount" : 1,
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    }, {
+      "name" : "Check the correct url",
+      "time" : {
+        "start" : 1648977544821,
+        "stop" : 1648977548916,
+        "duration" : 4095
+      },
+      "status" : "failed",
+      "steps" : [ {
+        "name" : "url",
+        "time" : {
+          "start" : 1648977544821,
+          "stop" : 1648977548916,
+          "duration" : 4095
+        },
+        "status" : "failed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "hasContent" : false,
+        "stepsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0
+      }, {
+        "name" : "assert expected **https://parabank.parasoft.com/parabank/index.htm** to equal **https://parabank.parasoft.com/parabank/index.htm111**",
+        "time" : {
+          "start" : 1648977548916,
+          "stop" : 1648977548916,
+          "duration" : 0
+        },
+        "status" : "failed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ {
+          "name" : "actual",
+          "value" : "https://parabank.parasoft.com/parabank/index.htm"
+        }, {
+          "name" : "expected",
+          "value" : "https://parabank.parasoft.com/parabank/index.htm111"
+        } ],
+        "hasContent" : true,
+        "stepsCount" : 0,
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "hasContent" : true,
+      "stepsCount" : 2,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "3e4e46f4d682dd86",
+      "name" : "test.spec.ts:2022-04-03T09:19:08.821Z",
+      "source" : "3e4e46f4d682dd86.png",
+      "type" : "image/png",
+      "size" : 209802
+    }, {
+      "uid" : "a554e6b5d6eecb54",
+      "name" : "video recording",
+      "source" : "a554e6b5d6eecb54.mp4",
+      "type" : "video/mp4",
+      "size" : 1086280
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 6,
+    "shouldDisplayMessage" : true,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "suite",
+    "value" : "Parabank - demo site"
+  }, {
+    "name" : "tag",
+    "value" : "this is nice tag"
+  }, {
+    "name" : "tag",
+    "value" : "as well as this"
+  }, {
+    "name" : "severity",
+    "value" : "blocker"
+  }, {
+    "name" : "owner",
+    "value" : "Chiu Wei Bin"
+  }, {
+    "name" : "story",
+    "value" : "Register a new user"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ {
+    "name" : "XRay",
+    "url" : "https://www.google.com/123",
+    "type" : "tms"
+  } ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ "this is nice tag", "as well as this" ]
+  },
+  "source" : "59ac2748fcfe5304.json",
+  "parameterValues" : [ ]
+}

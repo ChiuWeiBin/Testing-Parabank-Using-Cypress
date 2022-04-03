@@ -1,0 +1,3 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Apr 03 17:20:54 MYT 2022","Sun Apr 03 17:21:01 MYT 2022","7166","","Parabank - demo site","","","","redirect to sign up",""
+"failed","Sun Apr 03 17:20:45 MYT 2022","Sun Apr 03 17:20:54 MYT 2022","8861","","Parabank - demo site","","","","contains correct url",""
