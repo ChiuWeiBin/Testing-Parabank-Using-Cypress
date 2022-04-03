@@ -24,10 +24,7 @@ describe('Parabank - demo site', () => {
     })
     cy.allure().logStep('Check the correct url')
 
-    cy.url().should(
-      'equal',
-      Cypress.config().baseUrl + '/parabank/index.htm111',
-    )
+    cy.url().should('equal', Cypress.config().baseUrl + '/parabank/index.htm')
   })
 
   it('redirect to sign up', () => {
