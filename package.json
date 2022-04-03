@@ -8,7 +8,7 @@
     "allure:report": "allure generate allure-results --clean -o allure-report",
     "allure:clear": "allure generate --clean --output allure-results",
     "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true",
-    "posttest": "allure generate allure-results --clean -o allure-report"
+    // "posttest": "allure generate allure-results --clean -o allure-report"
   },
   "keywords": [
     "cucumber"
