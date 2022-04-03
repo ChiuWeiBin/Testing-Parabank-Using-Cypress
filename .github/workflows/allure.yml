@@ -1,74 +1,74 @@
-# name: allure-report
-# 'on':
-#   push:
-#     branches:
-#       - master
-# jobs:
-#   generate-report:
-#     runs-on: ubuntu-20.04
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
+name: allure-report
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  generate-report:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-#       - name: Check Cypress cache
-#         run: |
-#           npx cypress cache path
-#           npx cypress cache list
-#       - name: restore / cache the binary
-#         id: cache-cypress
-#         uses: actions/cache@v1
-#         with:
-#           path: ~/.cache/Cypress
-#           key: >-
-#             cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json')
-#             }}
-#       - name: Prepare Allure history
-#         run: |
-#           mkdir -p allure-history
-#           echo get newest folder from allure history
-#           PREVIOUS_HISTORY=$(ls -td allure-history/* | head -1) >/dev/null 2>&1
-#           echo get id of this folder
-#           PREVIOUS_HISTORY_ID=${PREVIOUS_HISTORY:15}
-#           [ -z "$PREVIOUS_HISTORY_ID" ] && PREVIOUS_HISTORY_ID=0
-#           CURRENT=1
-#           NEXT=2
-#           echo current actual report will be moved to id+1 folder
-#           CURRENTID=$(($PREVIOUS_HISTORY_ID+$CURRENT))
-#           echo new report will use id+2 as future allure-history folder name
-#           NEXTID=$(($PREVIOUS_HISTORY_ID+$NEXT))
-#           echo allure history contains 20 latest builds only, so we should remove old ones
-#           MAX="20"
-#           [[ "$NEXTID" -gt "$MAX" ]] && rm -r allure-history/$(($NEXTID-$MAX))
-#           echo move actual report to history
-#           echo prepare history data + executor info for future run
-#           mkdir -p allure-history/${CURRENTID}/allure-results
-#           mv allure-results allure-history/${CURRENTID}/
-#           mkdir -p allure-results && cp -r allure-report/history allure-results/history
-#           mv allure-report allure-history/${CURRENTID}/allure-report
-#           echo write links that report could be accessed by in future
-#           echo "{\"name\": \"gh action\",\"buildOrder\": \"${NEXTID}\",\"buildName\": \"gh action\",\"buildUrl\": \"https://github.com/Shelex/cypress-allure-historical-example/actions/runs/${{ github.run_id }}\",\"reportUrl\": \"https://shelex.github.io/cypress-allure-historical-example/allure-history/${NEXTID}/allure-report\",\"reportName\": \"test report\"}" > allure-results/executor.json
-#       - name: Cypress run
-#         uses: cypress-io/github-action@v2
-#         with:
-#           browser: chrome
-#           command: npm run test
+      - name: Check Cypress cache
+        run: |
+          npx cypress cache path
+          npx cypress cache list
+      - name: restore / cache the binary
+        id: cache-cypress
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/Cypress
+          key: >-
+            cypress-cache-v2-${{ runner.os }}-${{ hashFiles('**/package.json')
+            }}
+      - name: Prepare Allure history
+        run: |
+          mkdir -p allure-history
+          echo get newest folder from allure history
+          PREVIOUS_HISTORY=$(ls -td allure-history/* | head -1) >/dev/null 2>&1
+          echo get id of this folder
+          PREVIOUS_HISTORY_ID=${PREVIOUS_HISTORY:15}
+          [ -z "$PREVIOUS_HISTORY_ID" ] && PREVIOUS_HISTORY_ID=0
+          CURRENT=1
+          NEXT=2
+          echo current actual report will be moved to id+1 folder
+          CURRENTID=$(($PREVIOUS_HISTORY_ID+$CURRENT))
+          echo new report will use id+2 as future allure-history folder name
+          NEXTID=$(($PREVIOUS_HISTORY_ID+$NEXT))
+          echo allure history contains 20 latest builds only, so we should remove old ones
+          MAX="20"
+          [[ "$NEXTID" -gt "$MAX" ]] && rm -r allure-history/$(($NEXTID-$MAX))
+          echo move actual report to history
+          echo prepare history data + executor info for future run
+          mkdir -p allure-history/${CURRENTID}/allure-results
+          mv allure-results allure-history/${CURRENTID}/
+          mkdir -p allure-results && cp -r allure-report/history allure-results/history
+          mv allure-report allure-history/${CURRENTID}/allure-report
+          echo write links that report could be accessed by in future
+          echo "{\"name\": \"gh action\",\"buildOrder\": \"${NEXTID}\",\"buildName\": \"gh action\",\"buildUrl\": \"https://github.com/ChiuWeiBin/Testing-Parabank-Using-Cypress/actions/runs/${{ github.run_id }}\",\"reportUrl\": \"https://chiuweibin.github.io/Testing-Parabank-Using-Cypress/allure-history/${NEXTID}/allure-report\",\"reportName\": \"test report\"}" > allure-results/executor.json
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          command: npm run test
 
-#       - name: Generate Allure report
-#         if: always()
-#         uses: afiore/action-allure-report@v0.1.0
+      - name: Generate Allure report
+        if: always()
+        uses: afiore/action-allure-report@v0.1.0
 
-#       - name: Commit report results
-#         if: always()
-#         run: |
-#           git config --local user.email "action@github.com"
-#           git config --local user.name "GitHub Action"
-#           git add allure-report -f
-#           git add allure-results -f
-#           git add allure-history -f
-#           git commit -m "[chore] autogenerate Allure report" -a
-#       - name: Push changes
-#         if: always()
-#         uses: ad-m/github-push-action@master
-#         with:
-#           github_token: '${{ secrets.GITHUB_TOKEN }}'
-#           force: true
+      - name: Commit report results
+        if: always()
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add allure-report -f
+          git add allure-results -f
+          git add allure-history -f
+          git commit -m "[chore] autogenerate Allure report" -a
+      - name: Push changes
+        if: always()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          force: true
