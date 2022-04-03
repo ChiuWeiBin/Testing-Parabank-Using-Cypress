@@ -1,4 +1,4 @@
-name: allure-report
+name: allure
 'on':
   push:
     branches:
