@@ -1,4 +1,4 @@
-<img src="./images/logo.sample.png" alt="Logo of the project" align="right">
+<img src="./images/logo.sample.png" alt="Logo of the project" align="right"> ![cypress version](https://img.shields.io/badge/cypress-9.5.3-brightgreen)
 
 # Testing-Parabank-Using-Cypress [![allure-report](https://github.com/ChiuWeiBin/Testing-Parabank-Using-Cypress/actions/workflows/allure-report.yml/badge.svg)](https://github.com/ChiuWeiBin/Testing-Parabank-Using-Cypress/actions/workflows/allure-report.yml)
 
