@@ -18,7 +18,7 @@ pipeline {
     stage('Configuration') {
       steps {
         sh 'npm config set registry https://registry.npmjs.org/'
-        sh 'ls'
+        sh 'wget -O - https://registry.npmjs.org'
         sh 'npm ci --prefer-offline --no-audit'
         sh 'npx cypress verify'
       }
