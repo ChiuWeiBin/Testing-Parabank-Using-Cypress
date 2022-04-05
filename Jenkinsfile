@@ -1,13 +1,5 @@
-node {
-    CYPRESS_DOCKER_PATH = 'docker/Dockerfile'
-}
-
 pipeline {
-  agent {
-        dockerfile {
-              filename "${CYPRESS_DOCKER_PATH}"
-      }
-  }
+
   stages {
     stage('Clone scm') {
         steps {
