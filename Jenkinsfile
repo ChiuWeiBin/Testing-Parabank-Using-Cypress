@@ -10,12 +10,10 @@ pipeline {
   }
   stages {
     stage('Clone scm') {
-      stage('Checkout') {
         steps {
           checkout scm
         }
-      }
-  }
+    }
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
