@@ -1,7 +1,7 @@
 {
-  "name": "Parabank demo site",
-  "version": "1.0.0",
-  "description": "To test using cucumber js and selenium webdriver",
+  "name": "Parabank-demo-site",
+  "version": "0.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run  --browser chrome || (exit 0)",
