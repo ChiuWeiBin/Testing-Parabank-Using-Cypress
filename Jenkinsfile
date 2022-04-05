@@ -12,7 +12,7 @@ pipeline {
         sh 'npm config set registry https://registry.npmjs.org/'
         sh 'wget -O - https://registry.npmjs.org'
         sh 'ls'
-        sh 'npm ci --prefer-offline --no-audit'
+        sh 'npm install'
         sh 'npx cypress verify'
       }
     }
