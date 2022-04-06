@@ -1,11 +1,6 @@
-node {
-    CYPRESS_DOCKER_PATH = 'docker/Dockerfile'
-}
-
 pipeline {
   agent {
-        dockerfile {
-              filename "${CYPRESS_DOCKER_PATH}"
+       any
       }
   }
   stages {
