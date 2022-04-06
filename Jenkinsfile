@@ -9,6 +9,7 @@ pipeline {
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
+        sh 'rm -rf node_modules'
         sh 'npm install'
         sh 'npm install --save-dev cypress'
         sh 'npx cypress verify'
