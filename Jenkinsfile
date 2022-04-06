@@ -1,16 +1,18 @@
+node {
+    CYPRESS_DOCKER_PATH = 'docker/Dockerfile'
+}
 pipeline {
-  agent any
-  stages {
-    stage('Clone scm') {
-        steps {
-          checkout scm
-        }
+  agent {
+        dockerfile {
+              filename "${CYPRESS_DOCKER_PATH}"
+      }
     }
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
-        sh 'export CYPRESS_CACHE_FOLDER=/home/weibin/.cache/Cypress/9.5.3/Cypress'
-        sh 'unset DISPLAY'
+        sh 'npm config set registry https://registry.npmjs.org/'
+        sh 'ls'
+        sh 'wget -O - https://registry.npmjs.org'
         sh 'npm install'
         sh 'npx cypress verify'
       }
