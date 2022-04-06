@@ -1,6 +1,6 @@
 
 # use Cypress provided image with all dependencies included
-FROM cypress/included:9.5.3 
+FROM cypress/base:17.3.0
 RUN node --version
 RUN npm --version
 
