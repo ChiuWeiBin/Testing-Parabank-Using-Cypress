@@ -21,7 +21,7 @@ pipeline {
 
    stage('Run Cypress UI Tests') {
    steps {
-    sh "npm run cy:ui:headless"
+    sh "npm run test"
     sh "npx allure generate reports/ui/allure-results --clean -o reports/ui/allure-report"
    }
   }
