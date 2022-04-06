@@ -9,9 +9,8 @@ pipeline {
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
-        sh 'rm -rf node_modules'
+        sh 'export CYPRESS_CACHE_FOLDER=/home/weibin/.cache/Cypress/9.5.3/Cypress'
         sh 'npm install'
-        sh 'npm install --save-dev cypress'
         sh 'npx cypress verify'
       }
     }
