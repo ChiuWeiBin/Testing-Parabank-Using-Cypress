@@ -1,5 +1,8 @@
 pipeline {
-  agent any
+  agent { 
+        dockerfile {
+              filename "${CYPRESS_DOCKER_PATH}"
+      } 
   }
   stages {
     stage('Clone scm') {
@@ -11,16 +14,15 @@ pipeline {
     stage('Configuration') {
       steps {
         sh 'npm config set registry https://registry.npmjs.org/'
-        sh 'ls'
-        sh 'npm ci --prefer-offline --no-audit'
+        sh 'npm install'
         sh 'npx cypress verify'
       }
     }
 
    stage('Run Cypress UI Tests') {
    steps {
-    sh "npm run test"
-    sh "npx allure generate allure-results --clean -o allure-report"
+    sh "npm run test" 
+    sh "npx allure generate allure-results --clean -o allure-report" 
    }
   }
 
