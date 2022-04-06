@@ -10,6 +10,7 @@ pipeline {
     stage('Configuration') {
       steps {
         sh 'export CYPRESS_CACHE_FOLDER=/home/weibin/.cache/Cypress/9.5.3/Cypress'
+        sh 'unset DISPLAY'
         sh 'npm install'
         sh 'npx cypress verify'
       }
