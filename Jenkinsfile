@@ -9,9 +9,6 @@ pipeline {
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
-        sh 'npm config set registry https://registry.npmjs.org/'
-        sh 'wget -O - https://registry.npmjs.org'
-        sh 'ls'
         sh 'npm install'
         sh 'npx cypress verify'
       }
