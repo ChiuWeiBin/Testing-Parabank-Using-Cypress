@@ -1,3 +1,4 @@
+#!groovy
 pipeline {
   agent any
   stages {
@@ -20,22 +21,13 @@ pipeline {
    stage('Run Cypress UI Tests') {
    steps {
     sh "npm run test"
-    sh "npm run allure:report"
+    // sh "npm run allure:report"
    }
   }
 
     stage('Publish Reports') {
         steps{
-        publishHTML(
-                target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : './allure-report',
-                        reportFiles          : 'index.html',
-                        reportName           : "UI Allure Report"
-                ]
-        )
+        allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
     }
     }
   }
