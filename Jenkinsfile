@@ -31,16 +31,16 @@ pipeline {
         allure includeProperties: false, jdk: '', results: [
           [path: 'allure-results']
         ]
-        publishHTML(
-          target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: './allure',
-            reportFiles: 'index.html',
-            reportName: "UI Allure Report"
-          ]
-        )
+        // publishHTML(
+        //   target: [
+        //     allowMissing: false,
+        //     alwaysLinkToLastBuild: false,
+        //     keepAll: true,
+        //     reportDir: './allure',
+        //     reportFiles: 'index.html',
+        //     reportName: "UI Allure Report"
+        //   ]
+        // )
       }
     }
     stage('Publish Mochasome Reports') {
@@ -50,7 +50,7 @@ pipeline {
             allowMissing: false,
             alwaysLinkToLastBuild: false,
             keepAll: true,
-            reportDir: './cypress/reports',
+            reportDir: './cypress/reports/html',
             reportFiles: 'index.html',
             reportName: "Cyrpess Mochasome Report"
           ]
