@@ -12,6 +12,7 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 import allureWriter from '@shelex/cypress-allure-plugin/writer'
+import cypressMochawesomeReporter from 'cypress-mochawesome-reporter/plugin'
 /**
  * @type {Cypress.PluginConfig}
  */
@@ -20,7 +21,7 @@ module.exports = (on, config) => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
   allureWriter(on, config)
+  cypressMochawesomeReporter(on)
 
- 
   return config
 }

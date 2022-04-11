@@ -3,6 +3,8 @@
   "baseUrl": "https://parabank.parasoft.com",
   "watchForFileChanges": false,
   "integrationFolder": "cypress/test",
+  "reporter": "cypress-mochawesome-reporter",
+
   "chromeWebSecurity": false,
   "env": {
     "allure": true,

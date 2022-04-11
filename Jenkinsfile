@@ -25,7 +25,7 @@ pipeline {
    }
   }
 
-    stage('Publish Reports') {
+    stage('Publish Allure Reports') {
         steps{
         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
          publishHTML(
@@ -33,9 +33,23 @@ pipeline {
                         allowMissing         : false,
                         alwaysLinkToLastBuild: false,
                         keepAll              : true,
-                        reportDir            : './allure-report',
+                        reportDir            : './allure',
                         reportFiles          : 'index.html',
                         reportName           : "UI Allure Report"
+                ]
+        )
+    }
+
+    stage('Publish Mochasome Reports') {
+        steps{
+         publishHTML(
+                target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true,
+                        reportDir            : './cypress/reports',
+                        reportFiles          : 'index.html',
+                        reportName           : "Cyrpess Mochasome Report"
                 ]
         )
     }
