@@ -1,11 +1,12 @@
 #!groovy
+
 pipeline {
   agent any
   stages {
     stage('Clone scm') {
-        steps {
-          checkout scm
-        }
+      steps {
+        checkout scm
+      }
     }
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
@@ -18,41 +19,43 @@ pipeline {
       }
     }
 
-   stage('Run Cypress UI Tests') {
-   steps {
-    sh "npm run test"
-    // sh "npm run allure:report"
-   }
-  }
+    stage('Run Cypress UI Tests') {
+      steps {
+        sh "npm run test"
+        // sh "npm run allure:report"
+      }
+    }
 
     stage('Publish Allure Reports') {
-        steps{
-        allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
-         publishHTML(
-                target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : './allure',
-                        reportFiles          : 'index.html',
-                        reportName           : "UI Allure Report"
-                ]
+      steps {
+        allure includeProperties: false, jdk: '', results: [
+          [path: 'allure-results']
+        ]
+        publishHTML(
+          target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: './allure',
+            reportFiles: 'index.html',
+            reportName: "UI Allure Report"
+          ]
         )
+      }
     }
-
     stage('Publish Mochasome Reports') {
-        steps{
-         publishHTML(
-                target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : './cypress/reports',
-                        reportFiles          : 'index.html',
-                        reportName           : "Cyrpess Mochasome Report"
-                ]
+      steps {
+        publishHTML(
+          target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: './cypress/reports',
+            reportFiles: 'index.html',
+            reportName: "Cyrpess Mochasome Report"
+          ]
         )
-    }
+      }
     }
   }
 }
