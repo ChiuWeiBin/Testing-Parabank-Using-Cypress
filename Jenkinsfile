@@ -28,6 +28,16 @@ pipeline {
     stage('Publish Reports') {
         steps{
         allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+         publishHTML(
+                target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll              : true,
+                        reportDir            : './allure-report',
+                        reportFiles          : 'index.html',
+                        reportName           : "UI Allure Report"
+                ]
+        )
     }
     }
   }
