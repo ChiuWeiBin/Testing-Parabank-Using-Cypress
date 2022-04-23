@@ -9,17 +9,12 @@ pipeline {
       }
   }
   stages {
-    stage('Clone scm') {
-        steps {
-          checkout scm
-        }
-    }
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
+        echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
         sh 'npm config set registry https://registry.npmjs.org/'
-        sh 'wget -O - https://registry.npmjs.org'
-        sh 'npm ci --prefer-offline --no-audit'
+        sh 'npm install'
         sh 'npx cypress verify'
       }
     }
@@ -27,7 +22,7 @@ pipeline {
    stage('Run Cypress UI Tests') {
    steps {
     sh "npm run test"
-    sh "npx allure generate allure-results --clean -o allure-report"
+    sh "npx allure generate reports/ui/allure-results --clean -o reports/ui/allure-report"
    }
   }
 
@@ -38,7 +33,7 @@ pipeline {
                         allowMissing         : false,
                         alwaysLinkToLastBuild: false,
                         keepAll              : true,
-                        reportDir            : './allure-report',
+                        reportDir            : './reports/ui/allure-report',
                         reportFiles          : 'index.html',
                         reportName           : "UI Allure Report"
                 ]
