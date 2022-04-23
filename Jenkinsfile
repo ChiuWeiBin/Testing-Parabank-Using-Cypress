@@ -11,9 +11,8 @@ pipeline {
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
+        echo "Running build ${env.BUILD_ID} on ${env.JENKINS_URL}"
         sh 'npm config set registry https://registry.npmjs.org/'
-        sh 'wget -O - https://registry.npmjs.org'
-        sh 'ls'
         sh 'npm install'
         sh 'npx cypress verify'
       }
@@ -52,7 +51,7 @@ pipeline {
             keepAll: true,
             reportDir: './cypress/reports/html',
             reportFiles: 'index.html',
-            reportName: "Cyrpess Mochasome Report"
+            reportName: "Cypess Mochasome Report"
           ]
         )
       }
