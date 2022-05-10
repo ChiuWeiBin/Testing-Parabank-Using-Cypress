@@ -1,14 +1,13 @@
-node {
-    CYPRESS_DOCKER_PATH = 'docker/Dockerfile'
-}
+#!groovy
 
 pipeline {
-  agent {
-        dockerfile {
-              filename "${CYPRESS_DOCKER_PATH}"
-      }
-  }
+  agent any
   stages {
+    stage('Clone scm') {
+      steps {
+        checkout scm
+      }
+    }
     // first stage installs node dependencies and Cypress binary
     stage('Configuration') {
       steps {
@@ -19,26 +18,43 @@ pipeline {
       }
     }
 
-   stage('Run Cypress UI Tests') {
-   steps {
-    sh "npm run test"
-    sh "npx allure generate reports/ui/allure-results --clean -o reports/ui/allure-report"
-   }
-  }
-
-    stage('Publish Reports') {
-        steps{
-        publishHTML(
-                target: [
-                        allowMissing         : false,
-                        alwaysLinkToLastBuild: false,
-                        keepAll              : true,
-                        reportDir            : './reports/ui/allure-report',
-                        reportFiles          : 'index.html',
-                        reportName           : "UI Allure Report"
-                ]
-        )
+    stage('Run Cypress UI Tests') {
+      steps {
+        sh "npm run test"
+        // sh "npm run allure:report"
+      }
     }
+
+    stage('Publish Allure Reports') {
+      steps {
+        allure includeProperties: false, jdk: '', results: [
+          [path: 'allure-results']
+        ]
+        // publishHTML(
+        //   target: [
+        //     allowMissing: false,
+        //     alwaysLinkToLastBuild: false,
+        //     keepAll: true,
+        //     reportDir: './allure',
+        //     reportFiles: 'index.html',
+        //     reportName: "UI Allure Report"
+        //   ]
+        // )
+      }
+    }
+    stage('Publish Mochasome Reports') {
+      steps {
+        publishHTML(
+          target: [
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: true,
+            reportDir: './cypress/reports/html',
+            reportFiles: 'index.html',
+            reportName: "Cypess Mochasome Report"
+          ]
+        )
+      }
     }
   }
 }

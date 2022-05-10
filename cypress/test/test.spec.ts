@@ -11,11 +11,11 @@ describe('Parabank - demo site', () => {
       .description('Login page')
       .owner('Chiu Wei Bin')
       .story('Register a new user')
-      .tms('XRay', '123')
+      .tms('XRay', '121')
       .tag('this is nice tag', 'as well as this')
   })
 
-  it('contains correct url', () => {
+  it.only('contains correct url', () => {
     cy.allure().writeEnvironmentInfo({
       Browser: Cypress.browser.displayName,
       Version: Cypress.browser.version,
@@ -27,16 +27,34 @@ describe('Parabank - demo site', () => {
     cy.url().should('equal', Cypress.config().baseUrl + '/parabank/index.htm')
   })
 
+  it.only('contains correct url (intended to be wrong)', () => {
+    cy.allure().writeEnvironmentInfo({
+      Browser: Cypress.browser.displayName,
+      Version: Cypress.browser.version,
+      Channel: Cypress.browser.channel,
+      Family: Cypress.browser.family,
+    })
+    cy.allure().logStep('Check the correct url')
+
+    cy.url().should(
+      'equal',
+      Cypress.config().baseUrl + '/parabank/index.htm1111',
+    )
+  })
+
   it('redirect to sign up', () => {
     cy.allure().logStep('Click on the register button')
 
     cy.contains('#loginPanel  p', 'Register').find('a').click()
     cy.allure().logStep('Check the register URL')
 
-    cy.url().should(
-      'include',
-      Cypress.config().baseUrl + '/parabank/register.htm;jsessionid=',
-    )
+    cy.url()
+      .should(
+        'include',
+        Cypress.config().baseUrl + '/parabank/register.htm;jsessionid=',
+      )
+      .should('have.callCount')
+
     // cy.url().contains(
     //   Cypress.config().baseUrl + '/parabank/register.htm;jsessionid=',
     // )
