@@ -1,0 +1,1 @@
+[{"uid":"1d28ca6ffab189e","name":"contains correct url","time":{"start":1657637132092,"stop":1657637133808,"duration":1716},"status":"passed","severity":"blocker"},{"uid":"554dc5fb7499b10b","name":"redirect to sign up","time":{"start":1657637133851,"stop":1657637135864,"duration":2013},"status":"passed","severity":"blocker"}]
