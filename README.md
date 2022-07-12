@@ -1,5 +1,3 @@
-
-
 # Testing-Parabank-Using-Cypress ![cypress version](https://img.shields.io/badge/cypress-9.5.3-brightgreen) [![allure-report](https://github.com/ChiuWeiBin/Testing-Parabank-Using-Cypress/actions/workflows/allure-report.yml/badge.svg)](https://github.com/ChiuWeiBin/Testing-Parabank-Using-Cypress/actions/workflows/allure-report.yml)
 
 Testing with Cypress
@@ -15,8 +13,6 @@ npm i
 
 Here you should say what actually happens when you execute the code above.
 
-
-
 ## Tests
 
 Describe and show how to run the tests with code examples.
@@ -29,4 +25,3 @@ Give an example
 ## Style guide
 
 Explain your code style and show how to check it.
-

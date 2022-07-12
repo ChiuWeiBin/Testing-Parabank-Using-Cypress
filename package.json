@@ -1,22 +1,22 @@
 {
-  "name": "Parabank demo site",
-  "version": "1.0.0",
+  "name"       : "Parabank demo site",
+  "version"    : "1.0.0",
   "description": "To test using cucumber js and selenium webdriver",
-  "main": "index.js",
-  "scripts": {
-    "test": "npx cypress run  --browser chrome || (exit 0)",
-    "allure:report": "allure generate allure-results --clean -o allure-report",
-    "allure:clear": "allure generate --clean --output allure-results",
+  "main"       : "index.js",
+  "scripts"    : {
+    "test"          : "npx cypress run  --browser chrome || (exit 0)",
+    "allure:report" : "allure generate allure-results --clean -o allure-report",
+    "allure:clear"  : "allure generate --clean --output allure-results",
     "allure:history": "mv -f allure-report/history allure-results/history && rm -r allure-report || true"
   },
   "keywords": [
     "cucumber"
   ],
-  "author": "Open source",
-  "license": "ISC",
+  "author"         : "Open source",
+  "license"        : "ISC",
   "devDependencies": {
     "@shelex/cypress-allure-plugin": "^2.26.5",
-    "cypress": "^9.5.3",
-    "typescript": "4.6.3"
+    "cypress"                      : "^10.0.0",
+    "typescript"                   : "4.7.2"
   }
 }
