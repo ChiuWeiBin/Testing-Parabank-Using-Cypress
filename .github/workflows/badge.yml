@@ -1,5 +1,6 @@
 name: badges
 on:
+  workflow_dispatch:
   push:
     # update README badge only if the README file changes
     # or if the package.json file changes, or this file changes
@@ -8,7 +9,7 @@ on:
       - package.json
       - .github/workflows/badges.yml
 #   schedule:
-    # update badges every night
+# update badges every night
 #     - cron: '0 3 * * *'
 jobs:
   badges:
